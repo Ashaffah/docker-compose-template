@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  mongodb:
+    # This typically refers to an image provided by the Docker community, not necessarily maintained by MongoDB itself.
+    # image: mongo:latest
+    # This is provided and maintained by MongoDB, Inc.
+    image: mongodb/mongodb-community-server
+    restart: always
+    environment:
+      # - MONGO_INITDB_DATABASE=YOUR_DB_NAME
+      - MONGO_INITDB_ROOT_USERNAME=YOUR_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=YOUR_PASSWORD
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+  mongodb:
